@@ -1,7 +1,11 @@
 "use client";
 
-import Phone from "@/components/phone";
+import dynamic from "next/dynamic";
 import WorldMap from "@/components/svg/world";
+
+const Phone = dynamic(() => import("@/components/phone"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (

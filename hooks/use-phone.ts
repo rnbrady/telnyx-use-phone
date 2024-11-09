@@ -8,7 +8,7 @@ export function usePhone({
   password,
 }: IClientOptions) {
   const [client, setClient] = useState<TelnyxRTC>();
-  const [calls, setCalls] = useState<any[]>([]);
+  const [calls, setCalls] = useState<Call[]>([]);
 
   useEffect(() => {
     if (!login_token && !login) {
