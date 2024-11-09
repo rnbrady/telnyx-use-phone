@@ -42,7 +42,7 @@ export function usePhone({
 
         setCalls((calls) =>
           // If it's a new call, add it to the list of known calls
-          calls.includes(call) ? calls : [...calls, call]
+          calls.includes(call) ? calls : [call, ...calls]
         );
 
         // If the state of a call changes, force a re-render
@@ -65,7 +65,7 @@ export function usePhone({
 
     return () => {
       if (process.env.NODE_ENV === "development" && telnyxClient) {
-        console.warn(
+        console.log(
           "Existing Telnyx client will be disconnected and destroyed."
         );
       }

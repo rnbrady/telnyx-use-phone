@@ -9,7 +9,7 @@ export default function CallWidget({ call }: { call: Call }) {
     >
       <div className="ml-1">
         {call.direction === "outbound"
-          ? "Outbound call to " + call.options.destinationNumber
+          ? "Outbound call to +" + call.options.destinationNumber
           : "Inbound call from " + call.options.remoteCallerNumber}
       </div>
 
