@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# usePhone Demo App
 
-## Getting Started
+This is a Next.js app to demo the `usePhone` hook which provides management of inbound and outbound WebRTC / PSTN calls via Telnyx. 
 
-First, run the development server:
+<img width="1116" alt="usePhone demo app for Telnyx" src="https://github.com/user-attachments/assets/d614555d-8091-482a-b703-b69d08f80ee0">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Usage is simple:
+
+```typescript
+  const { calls, createCall } = usePhone(credentials);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The returned property `calls` is an array of calls which can be hooked up directly to the UI. Re-renders will be triggered when a new inbound or outbound call is created or when the status of an existing call changes. See the codebase for usage.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. You'll need a Telnyx account and API key.
 
-## Learn More
+2. In the portal, purchase a phone number.
 
-To learn more about Next.js, take a look at the following resources:
+3. Also in the portal, create a SIP connection linked to an outbound voice profile and associate the above number with it.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Put these details in a `.env` file in the root of the project folder. It should look like this:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+TELNYX_API_KEY="KEY01234567890123456789012345678901234567890"
+NEXT_PUBLIC_TELNYX_LOGIN="sip_connection_username"
+NEXT_PUBLIC_TELNYX_PASSWORD="sip_connection_password"
+NEXT_PUBLIC_TELNYX_INBOUND_NUMBER="+13412250009"
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
