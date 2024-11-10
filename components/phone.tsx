@@ -8,7 +8,7 @@ export default function Phone() {
   const { calls, createCall } = usePhone(credentials);
 
   return (
-    <div className="flex flex-col gap-4 items-start w-full">
+    <>
       <h2 className="text-sm text-gray-600 text-center w-full">
         Call in on {number} or call out below:
       </h2>
@@ -16,6 +16,6 @@ export default function Phone() {
       {calls.map((call) => (
         <CallWidget call={call} key={call.id} />
       ))}
-    </div>
+    </>
   );
 }

@@ -13,7 +13,9 @@ export default function Home() {
       <WorldMap className="absolute text-emerald-500 shrink -z-10 opacity-10 w-screen px-24" />
       <main className="flex flex-col gap-8 items-center  p-4">
         <h1 className="text-4xl font-bold text-gray-600">usePhone Demo</h1>
-        <Phone />
+        <div className="flex flex-col gap-4 items-start w-full">
+          <Phone />
+        </div>
       </main>
     </div>
   );
