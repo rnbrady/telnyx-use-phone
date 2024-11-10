@@ -1,5 +1,5 @@
 import { Audio } from "@telnyx/react-client";
-import type { Call } from "@telnyx/webrtc/lib/src/Modules/Verto/webrtc/Call";
+import { Call } from "@/hooks/use-phone";
 
 export function CallWidget({ call }: { call: Call }) {
   return (
