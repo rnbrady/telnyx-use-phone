@@ -2,9 +2,12 @@
 
 This is a Next.js app to demo the `usePhone` hook which provides management of inbound and outbound telephone calls via Telnyx. Inspired by [`useSWR`](https://swr.vercel.app/), it manages state and re-rendering so that you don't need `useState` or `useEffect`.
 
-<img width="1116" alt="usePhone demo app for Telnyx" src="https://github.com/user-attachments/assets/d614555d-8091-482a-b703-b69d08f80ee0">
+<img width="1486" alt="usePhone" src="https://github.com/user-attachments/assets/9ec99ba0-6cbf-41d6-868b-c1612c078470">
 
-Usage is simple:
+
+## Usage 
+
+Calling the hook simple:
 
 ```typescript
   const { calls, createCall } = usePhone(credentials);
