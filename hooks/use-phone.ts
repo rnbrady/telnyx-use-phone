@@ -26,27 +26,39 @@ export function usePhone({
       password,
     });
 
-    telnyxClient.on("telnyx.notification", (notification: INotification) => {
-      const call = notification.call as Call;
+    const addListenerToTelnyxClient = (event: string) => {
+      telnyxClient.on(event, (notification: INotification) => {
+        const call = notification?.call as Call;
 
-      console.log("Notification", notification);
+        console.log("Event callback telnyx.notification:", notification);
 
-      if (call) {
-        console.log(
-          "Notification for call",
-          call.id,
-          call.prevState,
-          "->",
-          call.state
-        );
+        if (call) {
+          console.log(
+            "Notification for call",
+            call.id,
+            call.prevState,
+            "->",
+            call.state
+          );
 
-        setCalls((calls) =>
-          // If it's a new call, add it to the list, otherwise just trigger a
-          // re - render as the call state has probably been updated
-          calls.includes(call) ? [...calls] : [call, ...calls]
-        );
-      }
-    });
+          setCalls((calls) =>
+            // If it's a new call, add it to the list, otherwise just trigger a
+            // re - render as the call state has probably been updated
+            calls.includes(call) ? [...calls] : [call, ...calls]
+          );
+        }
+      });
+    };
+
+    addListenerToTelnyxClient("telnyx.notification");
+
+    addListenerToTelnyxClient("telnyx.ready");
+
+    addListenerToTelnyxClient("telnyx.error");
+
+    addListenerToTelnyxClient("telnyx.socket.close");
+
+    addListenerToTelnyxClient("telnyx.socket.error");
 
     telnyxClient.connect();
 
@@ -60,11 +72,11 @@ export function usePhone({
 
         telnyxClient.disconnect();
 
+        telnyxClient.off("telnyx.notification");
+
         telnyxClient.off("telnyx.ready");
 
         telnyxClient.off("telnyx.error");
-
-        telnyxClient.off("telnyx.notification");
 
         telnyxClient.off("telnyx.socket.close");
 

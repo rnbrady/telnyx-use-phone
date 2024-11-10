@@ -18,6 +18,7 @@ export function DialPad({
     <>
       <div className="flex items-center bg-gray-200 rounded p-2 w-full shadow">
         <input
+          name="number"
           className="border border-gray-300 rounded p-1"
           placeholder="Enter a number"
           type="tel"
