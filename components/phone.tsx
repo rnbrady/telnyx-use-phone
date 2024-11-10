@@ -1,14 +1,11 @@
 "use client";
 
-import { usePhone } from "@/hooks/use-phone";
-import CallWidget from "@/components/call-widget";
-import DialPad from "@/components/dialpad";
+import { usePhone } from "@/hooks";
+import { CallWidget, DialPad } from "@/components";
+import { credentials } from "@/settings";
 
 export default function Phone() {
-  const { calls, createCall } = usePhone({
-    login: process.env.NEXT_PUBLIC_TELNYX_LOGIN,
-    password: process.env.NEXT_PUBLIC_TELNYX_PASSWORD,
-  });
+  const { calls, createCall } = usePhone(credentials);
 
   return (
     <div className="flex flex-col gap-4 items-start w-full">

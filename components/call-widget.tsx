@@ -1,7 +1,7 @@
 import { Audio } from "@telnyx/react-client";
 import { Call } from "@telnyx/webrtc/lib/src/Modules/Verto/webrtc/Call";
 
-export default function CallWidget({ call }: { call: Call }) {
+export function CallWidget({ call }: { call: Call }) {
   return (
     <div
       className="bg-gray-700 p-2 rounded text-gray-300 flex flex-col items-start gap-2 w-full"

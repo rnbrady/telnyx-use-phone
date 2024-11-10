@@ -7,7 +7,7 @@ const speedDials = [
   },
 ];
 
-export default function DialPad({
+export function DialPad({
   createCall,
 }: {
   createCall: (number: string) => void;
