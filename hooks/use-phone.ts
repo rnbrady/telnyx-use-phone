@@ -41,21 +41,10 @@ export function usePhone({
         );
 
         setCalls((calls) =>
-          // If it's a new call, add it to the list of known calls
-          calls.includes(call) ? calls : [call, ...calls]
+          // If it's a new call, add it to the list of known calls, otherwise
+          // just trigger a re-render as call state has probably been updated
+          calls.includes(call) ? [...calls] : [call, ...calls]
         );
-
-        // If the state of a call changes, force a re-render
-        if (call.state !== call.prevState) {
-          console.log(
-            "call state changed from",
-            call.prevState,
-            "to",
-            call.state
-          );
-
-          setCalls((calls) => [...calls]);
-        }
       }
     });
 
