@@ -7,7 +7,7 @@ This is a Next.js app to demo the `usePhone` hook which provides management of i
 
 ## Usage 
 
-Calling the hook simple:
+Calling the hook is simple:
 
 ```typescript
   const { calls, createCall } = usePhone(credentials);
