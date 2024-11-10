@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { TelnyxRTC, IClientOptions, INotification } from "@telnyx/webrtc";
-import { Call } from "@telnyx/webrtc/lib/src/Modules/Verto/webrtc/Call";
+import type { Call } from "@telnyx/webrtc/lib/src/Modules/Verto/webrtc/Call";
 
 export function usePhone({
   login_token = "",
