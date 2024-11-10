@@ -41,8 +41,8 @@ export function usePhone({
         );
 
         setCalls((calls) =>
-          // If it's a new call, add it to the list of known calls, otherwise
-          // just trigger a re-render as call state has probably been updated
+          // If it's a new call, add it to the list, otherwise just trigger a
+          // re - render as the call state has probably been updated
           calls.includes(call) ? [...calls] : [call, ...calls]
         );
       }
@@ -53,22 +53,23 @@ export function usePhone({
     setClient(telnyxClient);
 
     return () => {
-      if (process.env.NODE_ENV === "development" && telnyxClient) {
+      if (telnyxClient) {
         console.log(
           "Existing Telnyx client will be disconnected and destroyed."
         );
+
+        telnyxClient.disconnect();
+
+        telnyxClient.off("telnyx.ready");
+
+        telnyxClient.off("telnyx.error");
+
+        telnyxClient.off("telnyx.notification");
+
+        telnyxClient.off("telnyx.socket.close");
+
+        telnyxClient.off("telnyx.socket.error");
       }
-      telnyxClient.disconnect();
-
-      telnyxClient.off("telnyx.ready");
-
-      telnyxClient.off("telnyx.error");
-
-      telnyxClient.off("telnyx.notification");
-
-      telnyxClient.off("telnyx.socket.close");
-
-      telnyxClient.off("telnyx.socket.error");
     };
   }, [login_token, login, password]);
 
