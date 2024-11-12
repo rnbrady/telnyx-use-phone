@@ -1,6 +1,6 @@
-# usePhone Demo App
+# usePhone: a React Hook for Telnyx
 
-This is a Next.js app to demo the `usePhone` hook which provides management of inbound and outbound telephone calls via Telnyx. Inspired by [`useSWR`](https://swr.vercel.app/), it manages state and re-rendering so you don't have to.
+The `usePhone` React hook provides management of inbound and outbound telephone calls via Telnyx. Inspired by [`useSWR`](https://swr.vercel.app/), it manages state and re-rendering so you don't have to. The hook is shared here with a Next.js demo app, but can be copied and pasted into your own React project.
 
 <img width="1486" alt="usePhone" src="https://github.com/user-attachments/assets/9ec99ba0-6cbf-41d6-868b-c1612c078470">
 
